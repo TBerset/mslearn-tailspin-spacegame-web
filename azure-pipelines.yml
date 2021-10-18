@@ -14,9 +14,6 @@ steps:
   inputs:
     command: 'install'
   
-- task: CmdLine@2
-  inputs:
-    script: 'node-sass Tailspin.SpaceGame.Web/wwwroot'
     
 - task: gulp@0
   inputs:
@@ -33,4 +30,13 @@ steps:
   inputs:
     command: 'restore'
     feedsToUse: 'config'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
 
