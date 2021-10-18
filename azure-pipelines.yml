@@ -9,11 +9,6 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
-variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
-
 steps:
 - task: Npm@1
   inputs:
@@ -21,5 +16,21 @@ steps:
   
 - task: CmdLine@2
   inputs:
-    script: 'node-sass'
+    script: 'node-sass Tailspin.SpaceGame.Web/wwwroot'
     
+- task: gulp@0
+  inputs:
+    gulpFile: 'gulpfile.js'
+    targets: 
+    gulpjs: 'node_modules/gulp/bin/gulp.js'
+    enableCodeCoverage: false
+    
+- task: CmdLine@2
+  inputs:
+    script: 'echo %date% > Tailspin.SpaceGame.Web/wwwroot/buildinfo.txt'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    feedsToUse: 'config'
+
