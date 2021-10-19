@@ -6,6 +6,9 @@
 trigger:
 - main
 
+variables:
+  dir: 'C:\Users\Thierry Berset\source\repos\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web'
+
 pool:
   vmImage: 'windows-latest'
 
@@ -14,34 +17,36 @@ steps:
   name: "npm"
   inputs:
     command: 'install'
-    
+
 - task: gulp@0
-  name: "gulp"
+  name: 'gulp'
   inputs:
     gulpFile: 'gulpfile.js'
     targets: 
     gulpjs: 'node_modules/gulp/bin/gulp.js'
     enableCodeCoverage: false
-    
+
 - task: CmdLine@2
-  name: "echo_date_in_root"
+  name: 'echo_date_in_root'
   inputs:
-    script: 'echo %date% > Tailspin.SpaceGame.Web/wwwroot/buildinfo.txt'
+    script: echo %date% > Tailspin.SpaceGame.Web/wwwroot/buildinfo.txt
 
 - task: DotNetCoreCLI@2
-  name: "dot_net_restore"
+  name: 'dot_net_restore'
   inputs:
     command: 'restore'
     feedsToUse: 'config'
+    workingDirectory: $(dir)
 
 - task: DotNetCoreCLI@2
-  name: "dot_net_build"
+  name: 'dot_net_build'
   inputs:
     command: 'build'
+    workingDirectory: $(dir)
 
 - task: DotNetCoreCLI@2
-  name: "dot_net_publish"
+  name: 'dot_net_publish'
   inputs:
     command: 'publish'
     publishWebProjects: true
-
+    workingDirectory: $(dir)
