@@ -1,7 +1,18 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tailspin.SpaceGame.Web", "Tailspin.SpaceGame.Web\Tailspin.SpaceGame.Web.csproj", "{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tailspin.SpaceGame.Web", "Tailspin.SpaceGame.Web\Tailspin.SpaceGame.Web.csproj", "{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{D807A067-0F9B-4C30-B81C-E1CA738DD6F0}"
+	ProjectSection(SolutionItems) = preProject
+		Tailspin.SpaceGame.Web\Templates\Build.yml = Tailspin.SpaceGame.Web\Templates\Build.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4B552190-BEC7-4924-BCCB-F247CFE94BD4}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,5 +24,11 @@ Global
 		{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8294E3EE-171B-4EF8-8D99-07603195BD36}
 	EndGlobalSection
 EndGlobal
